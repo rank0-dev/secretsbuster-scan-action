@@ -1,0 +1,47 @@
+{
+  "name": "secretsbuster-github-action",
+  "description": "Trigger a SecretsBuster scan for your target",
+  "version": "v0.1.0",
+  "author": "Rank 0",
+  "type": "module",
+  "private": true,
+  "homepage": "https://github.com/rank0-dev/secretsbuster-scan-action",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rank0-dev/secretsbuster-scan-action.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rank0-dev/secretsbuster-scan-action/issues"
+  },
+  "keywords": [
+    "actions"
+  ],
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "package": "npx rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
+    "package:watch": "npm run package -- --watch"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "2.0.2",
+    "@actions/http-client": "3.0.0"
+  },
+  "devDependencies": {
+    "@github/local-action": "7.0.0",    
+    "@rollup/plugin-commonjs": "29.0.0",
+    "@rollup/plugin-json": "6.1.0",
+    "@rollup/plugin-node-resolve": "16.0.3",
+    "@rollup/plugin-typescript": "12.3.0",    
+    "@types/node": "25.0.10",    
+    "rollup": "4.56.0",    
+    "typescript": "5.9.3"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "*"
+  }
+}

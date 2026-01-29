@@ -1,0 +1,30 @@
+name: Manual Test
+
+on: workflow_dispatch
+
+permissions:
+  contents: read
+
+jobs:
+
+  test-action:
+    name: SecretsBuster Scan Action Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v5
+
+      - name: Test Local Action
+        id: test-action
+        uses: ./
+        with:
+          sb-api-key: ${{ secrets.SB_API_KEY }}
+          targets: |
+            https://brokencrystals.com/api/secrets
+          errorOnLeak: false
+
+      - name: Print Output
+        id: output
+        run: echo "${{ steps.test-action.outputs.scan-results }}"

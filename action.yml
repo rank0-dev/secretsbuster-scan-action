@@ -1,0 +1,29 @@
+name: SecretsBuster Scan Action
+description: Trigger a SecretsBuster scan for your target
+author: Rank 0
+
+branding:
+  icon: search
+  color: blue
+
+inputs:
+  sb-api-key:
+    description: Your SecretsBuster account API key
+    required: true
+  targets:
+    description:
+      A list of targets to scan, declared as a multiline string (using the pipe syntax). Targets must be a valid URL,
+      including the protocol (http/https).
+    required: true
+  errorOnLeak:
+    description: Whether this action should ends in error when a target is leaky (scan returned secrets). Default to `false`
+    required: false
+    default: 'false' 
+
+outputs:
+  scan-results:
+    description: A JSON array of scan reports returned by SecretsBuster
+
+runs:
+  using: node24
+  main: dist/index.js
