@@ -1,7 +1,7 @@
 {
   "name": "secretsbuster-github-action",
   "description": "Trigger a SecretsBuster scan for your target",
-  "version": "v0.1.0",
+  "version": "v1.0.0",
   "author": "Rank 0",
   "type": "module",
   "private": true,
